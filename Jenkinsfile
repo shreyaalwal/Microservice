@@ -13,7 +13,6 @@ pipeline {
                     serverUrl: 'https://3F1EFBF3B9E2CF2EE5DA9C581113CCB0.gr7.ap-south-1.eks.amazonaws.com'
                 ]]) {
                     sh "kubectl apply -f deployment-service.yml"
-                    sleep 60
                 }
             }
         }
@@ -28,7 +27,7 @@ pipeline {
                     namespace: 'webapps',
                     serverUrl: 'https://3F1EFBF3B9E2CF2EE5DA9C581113CCB0.gr7.ap-south-1.eks.amazonaws.com'
                 ]]) {
-                    sh "kubectl get all -n webapps"
+                    sh "kubectl get svc -n webapps"
                 }
             }
         }
